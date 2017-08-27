@@ -1,0 +1,3 @@
+Tipo tarea ---> tabla
+
+prioridad estado ----> campos

@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{37BFD4B7-79A9-4632-B7AD-A31C9C462BF5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Capa.UI</RootNamespace>
+    <AssemblyName>Capa.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminProyectosDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdminProyectosDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsActividadesPorGravedad.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsActividadesPorGravedad.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsActividadPorTipoActividad.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsActividadPorTipoActividad.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsActPorUsuario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsActPorUsuario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsActPorUsuarioAsignado.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsActPorUsuarioAsignado.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsHorasActividades.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHorasActividades.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsUsuariosPorProyectos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsUsuariosPorProyectos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCreadorProy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCreadorProy.Designer.cs">
+      <DependentUpon>FrmCreadorProy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoUsuar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoUsuar.Designer.cs">
+      <DependentUpon>FrmMantenimientoUsuar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmActividad.Designer.cs">
+      <DependentUpon>FrmActividad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogIn.Designer.cs">
+      <DependentUpon>FrmLogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenuPrincipal.Designer.cs">
+      <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\frmGrafico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmGrafico.Designer.cs">
+      <DependentUpon>frmGrafico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmRepActPorGravedad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmRepActPorGravedad.Designer.cs">
+      <DependentUpon>frmRepActPorGravedad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmRepActPorProyectos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmRepActPorProyectos.Designer.cs">
+      <DependentUpon>frmRepActPorProyectos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmRepActPorUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmRepActPorUsuario.Designer.cs">
+      <DependentUpon>frmRepActPorUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmRepActividadPorTipoActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmRepActividadPorTipoActividad.Designer.cs">
+      <DependentUpon>frmRepActividadPorTipoActividad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportUsuarioAsignado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportUsuarioAsignado.Designer.cs">
+      <DependentUpon>frmReportUsuarioAsignado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmRepUsuarioPorProyecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmRepUsuarioPorProyecto.Designer.cs">
+      <DependentUpon>frmRepUsuarioPorProyecto.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmCreadorProy.resx">
+      <DependentUpon>FrmCreadorProy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoUsuar.resx">
+      <DependentUpon>FrmMantenimientoUsuar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmActividad.resx">
+      <DependentUpon>FrmActividad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogIn.resx">
+      <DependentUpon>FrmLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuPrincipal.resx">
+      <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reportes\frmGrafico.resx">
+      <DependentUpon>frmGrafico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmRepActPorGravedad.resx">
+      <DependentUpon>frmRepActPorGravedad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmRepActPorProyectos.resx">
+      <DependentUpon>frmRepActPorProyectos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmRepActPorUsuario.resx">
+      <DependentUpon>frmRepActPorUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportUsuarioAsignado.resx">
+      <DependentUpon>frmReportUsuarioAsignado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmRepUsuarioPorProyecto.resx">
+      <DependentUpon>frmRepUsuarioPorProyecto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\repActividadPorProyecto.rdlc" />
+    <EmbeddedResource Include="Reportes\frmRepActividadPorTipoActividad.resx">
+      <DependentUpon>frmRepActividadPorTipoActividad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\repActPorGravedad.rdlc" />
+    <EmbeddedResource Include="Reportes\repActPorTipoActividad.rdlc" />
+    <EmbeddedResource Include="Reportes\repActPorUsuario.rdlc" />
+    <EmbeddedResource Include="Reportes\repActPorUsuarioAsignado.rdlc" />
+    <EmbeddedResource Include="Reportes\repHorasActividadesGraficos.rdlc" />
+    <EmbeddedResource Include="Reportes\repUsuariosProyectos.rdlc" />
+    <None Include="AdminProyectosDataSet.xsc">
+      <DependentUpon>AdminProyectosDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AdminProyectosDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AdminProyectosDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AdminProyectosDataSet.xss">
+      <DependentUpon>AdminProyectosDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dsActividadesPorGravedad.xsc">
+      <DependentUpon>dsActividadesPorGravedad.xsd</DependentUpon>
+    </None>
+    <None Include="dsActividadesPorGravedad.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsActividadesPorGravedad.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsActividadesPorGravedad.xss">
+      <DependentUpon>dsActividadesPorGravedad.xsd</DependentUpon>
+    </None>
+    <None Include="dsActividadPorTipoActividad.xsc">
+      <DependentUpon>dsActividadPorTipoActividad.xsd</DependentUpon>
+    </None>
+    <None Include="dsActividadPorTipoActividad.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsActividadPorTipoActividad.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsActividadPorTipoActividad.xss">
+      <DependentUpon>dsActividadPorTipoActividad.xsd</DependentUpon>
+    </None>
+    <None Include="dsActPorUsuario.xsc">
+      <DependentUpon>dsActPorUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="dsActPorUsuario.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsActPorUsuario.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsActPorUsuario.xss">
+      <DependentUpon>dsActPorUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="dsActPorUsuarioAsignado.xsc">
+      <DependentUpon>dsActPorUsuarioAsignado.xsd</DependentUpon>
+    </None>
+    <None Include="dsActPorUsuarioAsignado.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsActPorUsuarioAsignado.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsActPorUsuarioAsignado.xss">
+      <DependentUpon>dsActPorUsuarioAsignado.xsd</DependentUpon>
+    </None>
+    <None Include="dsHorasActividades.xsc">
+      <DependentUpon>dsHorasActividades.xsd</DependentUpon>
+    </None>
+    <None Include="dsHorasActividades.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHorasActividades.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsHorasActividades.xss">
+      <DependentUpon>dsHorasActividades.xsd</DependentUpon>
+    </None>
+    <None Include="dsUsuariosPorProyectos.xsc">
+      <DependentUpon>dsUsuariosPorProyectos.xsd</DependentUpon>
+    </None>
+    <None Include="dsUsuariosPorProyectos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsUsuariosPorProyectos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsUsuariosPorProyectos.xss">
+      <DependentUpon>dsUsuariosPorProyectos.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Capa.Entidades\Capa.Entidades.csproj">
+      <Project>{ec5b2efb-020b-46b3-ad6f-d4867047de76}</Project>
+      <Name>Capa.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Capa.Logica\Capa.Logica.csproj">
+      <Project>{6bc8a9ff-f12f-421f-9a92-0bfa9982e944}</Project>
+      <Name>Capa.Logica</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Attachment 256x256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_clip-save-attach-file_2205233.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background_m3_login_for_m1_by_andreascy-d3ecbzg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10952455-Computer-network-in-digital-design-Stock-Photo-security.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\451592_lollercoasterlab-wallpapers-games-hardware-software-and-other_1600x900_h.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abstract_wavy.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
