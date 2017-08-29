@@ -27,7 +27,7 @@ namespace Capa.UI.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-V9EG6VD;Initial Catalog=AdminProyectos;Persist Security Info=" +
-            "True;User ID=kvn2794;Password=bolitress3")]
+            "True;User ID=kvn2794;Password=chilihead1028")]
         public string Conexion {
             get {
                 return ((string)(this["Conexion"]));

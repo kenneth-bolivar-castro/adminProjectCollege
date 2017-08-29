@@ -45,6 +45,7 @@ namespace Capa.AccesoDatos
                     usuario.rol = new Entidades.RolesEnt();
                     usuario.rol.idRol = (int)reader["ID_ROL"];
                     usuario.rol.Descrip = reader["DESCRIP"].ToString();
+                    usuario.Contrasenia = reader["CON"].ToString();
                     usuario.NombreUsuario = reader["NOMBREUSUAR"].ToString();
                     listaUsuarios.Add(usuario);
                 }
@@ -170,6 +171,7 @@ namespace Capa.AccesoDatos
                 cmd.Parameters.AddWithValue("@IdRol", usuario.rol.idRol);
                 cmd.Parameters.AddWithValue("@NombreUs", usuario.NombreUsuario);
                 cmd.Parameters.AddWithValue("@Id", usuario.id);
+                cmd.Parameters.AddWithValue("@Contrasenia", usuario.Contrasenia);
                 cmd.ExecuteNonQuery();
 
 

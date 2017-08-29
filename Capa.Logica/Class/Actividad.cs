@@ -77,6 +77,15 @@ namespace Capa.Logica.Class
         }
 
         /// <summary>
+        /// Accede a la capa datos y eliminara la actividad por consiguiente
+        /// </summary>
+        /// <param name="IdAct"></param>
+        public static void EliminarActividad(int IdAct)
+        {
+            AccesoDatos.ActividadDatos.EliminarActividad(IdAct);
+        }
+
+        /// <summary>
         /// Calcula el monto estimado de la actividad
         /// </summary>
         /// <param name="act"></param>
@@ -95,6 +104,35 @@ namespace Capa.Logica.Class
         private static double calcularCostoActividad(Entidades.ActividadEnt act,Entidades.ProyectoEnt proy)
         {
             return act.TiempoReal * proy.CostoHora;
+        }
+
+
+        /// <summary>
+        /// Verificar si se puede eliminar un usuario, no xq ya existen actividades asociadas
+        /// al Usuario
+        /// </summary>
+        /// <param name="IdUs"></param>
+        /// <returns></returns>
+        public static int CantidadDeActividadesDeUnUsuario(int IdUs)
+        {
+            return AccesoDatos.ActividadDatos.CantidadDeActividadesPorUsuario(IdUs);
+        }
+
+        /// <summary>
+        /// Metodo que obtiene la lista de actividades de un proyecto y actualiza los costos
+        /// </summary>
+        /// <param name="CostoAnterior"></param>
+        /// <param name="CostoNuevo"></param>
+        /// <param name="IdProy"></param>
+        public static void ActualizarCostosDelasActivades(Entidades.ProyectoEnt proy)
+        {
+            List<Entidades.ActividadEnt> ListAct = AccesoDatos.ActividadDatos.ObtenerListaActPorProyectos(proy.Id);
+
+            foreach (Entidades.ActividadEnt act in ListAct)
+            {
+                ModificarActividad(act, proy);
+            }
+             
         }
     }
 }

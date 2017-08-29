@@ -36,7 +36,7 @@ namespace Capa.AccesoDatos
             {
                 conn.Open();
                 cmd.Parameters.AddWithValue("@Fecha_Cambio", historial.FechaCambio);
-                cmd.Parameters.AddWithValue("@TIPOREP", historial.actividad.Estado);
+                cmd.Parameters.AddWithValue("@TIPOREP", historial.TipoCambio);
                 cmd.Parameters.AddWithValue("@ID_ACT", historial.actividad.ID);
                 cmd.Parameters.AddWithValue("@ID_USUARI", historial.usuario.id);
 

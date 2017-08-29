@@ -92,7 +92,8 @@ namespace Capa.UI
         }
 
         /// <summary>
-        /// Elimina al usuario de la lista de usuarios pertenecientes al proyecto
+        /// Elimina al usuario de la lista de usuarios pertenecientes al proyecto.
+        /// Ademas si va a modificar revisa que no tenga actividades al nombre del usuario
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -104,6 +105,20 @@ namespace Capa.UI
                 MessageBox.Show("Debe escoger un usuario");
                 return;
             }
+
+            if (this.btnCrear.Text.Equals("Modificar"))
+            {
+                Entidades.UsuarioEnt us1 = lstUsuariosCont.SelectedItem as Entidades.UsuarioEnt;
+
+                int cantAct = Logica.Class.Actividad.CantidadDeActividadesDeUnUsuario(us1.id);
+
+                if (cantAct > 0)
+                {
+                    MessageBox.Show("No se puede eliminar el usuario porque el usuario tiene actividades a su nombre");
+                    return;
+                }
+            }
+
             List<Entidades.UsuarioEnt> usuarList = new List<Entidades.UsuarioEnt>();
             foreach (Entidades.UsuarioEnt us in lstUsuariosCont.Items)
             {
@@ -154,6 +169,12 @@ namespace Capa.UI
         {
             this.EliminarUsuarProy(this.lista);
             Entidades.ProyectoEnt proyecto = FrmMenuPrincipal.proyecto;
+
+            if (proyecto.CostoHora != (double)this.NumCostoEst.Value)
+            {
+                proyecto.CostoHora = (double)this.NumCostoEst.Value;
+                Logica.Class.Actividad.ActualizarCostosDelasActivades(proyecto);
+            }
 
             proyecto.CostoHora = (double) this.NumCostoEst.Value;
             proyecto.Nombre = this.txtNombre.Text;

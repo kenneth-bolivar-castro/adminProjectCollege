@@ -22,8 +22,7 @@ namespace Capa.AccesoDatos
         {
 
             Entidades.UsuarioEnt usuario = null;
-            String conexion = Conexion.cadena;
-            SqlConnection conn = new SqlConnection(conexion);
+            SqlConnection conn = new SqlConnection(Conexion.cadena);
 
 
             string sql = "SP_IngresarSistema";

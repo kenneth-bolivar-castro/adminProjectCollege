@@ -275,7 +275,6 @@ namespace Capa.UI
             else
             //Sino es q existen archivos adjuntos
             {
-                Logica.Class.Actividad.InsertarActividad(actividad, FrmMenuPrincipal.proyecto);
                 //Verifica si va a crear una nueva actividad
                 if (this.btnGuardar.Text.Equals("Guardar"))
                 {
@@ -421,10 +420,19 @@ namespace Capa.UI
                 return;
             }
 
-            this.lstArchivos.Items.Remove(arch);
+            DialogResult dialog = MessageBox.Show("Seguro?", "Pregunta", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
-            Logica.Class.Archivo.ElimnarArchivo(arch.Id);
+            if (dialog == DialogResult.Yes)
+            {
 
+                this.lstArchivos.Items.Remove(arch);
+
+                Logica.Class.Archivo.ElimnarArchivo(arch.Id);
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

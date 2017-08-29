@@ -254,5 +254,83 @@ namespace Capa.AccesoDatos
                 conn.Close();
             }
         }
+
+
+        /// <summary>
+        /// Accede a la base de datos y elimina la actividad y actualiza el proyecto
+        /// ademas elimina las dependencias existentes
+        /// </summary>
+        /// <param name="IdAct"></param>
+        public static void EliminarActividad(int IdAct)
+        {
+            SqlConnection conn = new SqlConnection(Conexion.cadena);
+
+            string sql = "SP_EliminarActividad";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            try
+            {
+                conn.Open();
+                cmd.Parameters.AddWithValue("@IdAct", IdAct);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch 
+            {
+
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Comunica con la base de datos y regresa un entero con la cantidad de actividades
+        /// de un usuario
+        /// </summary>
+        /// <param name="IdUs"></param>
+        /// <returns></returns>
+        public static int CantidadDeActividadesPorUsuario(int IdUs)
+        {
+            int cant = 0;
+
+            SqlConnection conn = new SqlConnection(Conexion.cadena);
+
+            string sql = "SP_CantActDeUsuario";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            try
+            {
+                conn.Open();
+
+                cmd.Parameters.AddWithValue("@IdUs", IdUs);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    cant = (int)reader["Cant"];
+                }
+            }
+            catch 
+            {
+
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return cant;
+        }
     }
 }

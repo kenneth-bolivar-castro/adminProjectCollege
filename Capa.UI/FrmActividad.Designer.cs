@@ -69,6 +69,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtNombre);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(57, 109);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1113, 118);
@@ -86,6 +87,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.cboUsuarios);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(57, 268);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(315, 209);
@@ -105,6 +107,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtDescrip);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(57, 494);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(605, 289);
@@ -126,6 +129,7 @@
             this.groupBox4.Controls.Add(this.numHrsTrabajadas);
             this.groupBox4.Controls.Add(this.numEstimado);
             this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(769, 499);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(447, 284);
@@ -138,7 +142,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(30, 213);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(183, 25);
+            this.label2.Size = new System.Drawing.Size(199, 25);
             this.label2.TabIndex = 3;
             this.label2.Text = "Horas Trabajadas";
             // 
@@ -181,7 +185,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(30, 100);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 25);
+            this.label1.Size = new System.Drawing.Size(190, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Horas Estimadas";
             // 
@@ -201,6 +205,7 @@
             this.groupBox5.Controls.Add(this.label4);
             this.groupBox5.Controls.Add(this.numGravedad);
             this.groupBox5.Controls.Add(this.label3);
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(476, 268);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(755, 209);
@@ -221,7 +226,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(509, 98);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 25);
+            this.label5.Size = new System.Drawing.Size(85, 25);
             this.label5.TabIndex = 6;
             this.label5.Text = "Estado";
             // 
@@ -238,7 +243,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(44, 148);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(148, 25);
+            this.label4.Size = new System.Drawing.Size(162, 25);
             this.label4.TabIndex = 5;
             this.label4.Text = "Tipo Actividad";
             // 
@@ -269,7 +274,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(44, 64);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 25);
+            this.label3.Size = new System.Drawing.Size(114, 25);
             this.label3.TabIndex = 1;
             this.label3.Text = "Gravedad";
             // 
@@ -299,6 +304,7 @@
             this.groupBox6.Controls.Add(this.btnDescargar);
             this.groupBox6.Controls.Add(this.lstArchivos);
             this.groupBox6.Controls.Add(this.btnAjuntar);
+            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(1298, 109);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(525, 473);

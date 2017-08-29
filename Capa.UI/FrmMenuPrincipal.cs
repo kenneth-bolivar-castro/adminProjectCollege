@@ -48,6 +48,12 @@ namespace Capa.UI
                 this.usuariosToolStripMenuItem1.Enabled = true;
                 this.graficoActividadesToolStripMenuItem.Enabled = true;
                 this.porGravedadToolStripMenuItem.Enabled = true;
+                this.costosDeActividadesToolStripMenuItem.Enabled = true;
+                this.historialToolStripMenuItem.Enabled = true;
+                this.btnEliminarAct.Enabled = true;
+                this.btnNuevAct.Enabled = true;
+                this.btnAbrir.Enabled = true;
+                this.deLosProyectosToolStripMenuItem.Visible = false;
 
             }
             else
@@ -61,7 +67,7 @@ namespace Capa.UI
                     this.btnEliminarProy.Enabled = false;
                     this.btnDetallProy.Enabled = true;
                     this.btnAbrirProyecto.Enabled = true;
-                    this.nuevoProyectoToolStripMenuItem.Enabled = false;
+                    this.nuevoProyectoToolStripMenuItem.Enabled = true;
                     this.reporteToolStripMenuItem.Visible = true;
                     this.actividadesToolStripMenuItem.Enabled = true;
                     this.porProyectosToolStripMenuItem.Enabled = false;
@@ -70,6 +76,12 @@ namespace Capa.UI
                     this.usuariosToolStripMenuItem1.Enabled = false;
                     this.graficoActividadesToolStripMenuItem.Enabled = false;
                     this.porGravedadToolStripMenuItem.Enabled = false;
+                    this.costosDeActividadesToolStripMenuItem.Enabled = false;
+                    this.historialToolStripMenuItem.Enabled = false;
+                    this.btnEliminarAct.Enabled = true;
+                    this.btnNuevAct.Enabled = true;
+                    this.btnAbrir.Enabled = true;
+                    this.delUsuarioToolStripMenuItem.Visible = true;
 
                 }
                 else
@@ -91,6 +103,12 @@ namespace Capa.UI
                     this.usuariosToolStripMenuItem1.Enabled = false;
                     this.graficoActividadesToolStripMenuItem.Enabled = false;
                     this.porGravedadToolStripMenuItem.Enabled = false;
+                    this.costosDeActividadesToolStripMenuItem.Enabled = false;
+                    this.historialToolStripMenuItem.Enabled = false;
+                    this.btnEliminarAct.Enabled = false;
+                    this.btnNuevAct.Enabled = false;
+                    this.btnAbrir.Enabled = true;
+                    this.delUsuarioToolStripMenuItem.Visible = false;
                 }
             }
         }
@@ -101,6 +119,7 @@ namespace Capa.UI
         /// <param name="e"></param>
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
+            proyecto = null;
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.Permisos();
@@ -129,7 +148,6 @@ namespace Capa.UI
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmLogIn.getInstance().Show();
         }
 
 
@@ -143,7 +161,7 @@ namespace Capa.UI
 
             FrmMantenimientoUsuar frmMant = new FrmMantenimientoUsuar();
             frmMant.ShowDialog();
-            
+
             //frmMant.ShowDialog();
         }
 
@@ -175,16 +193,18 @@ namespace Capa.UI
                 MessageBox.Show("No hay proyectos asignados");
                 return;
             }
-            Entidades.ProyectoEnt proyecto =(Entidades.ProyectoEnt)this.lstProyectos.SelectedItem;
+            Entidades.ProyectoEnt proyecto = (Entidades.ProyectoEnt)this.lstProyectos.SelectedItem;
             proyecto.ListUsuarios = Logica.Class.Proyecto.ObtenerUsuariosPorProyectos(proyecto.Id);
 
 
             StringBuilder detalles = new StringBuilder();
-            
+
             detalles.Append("Nombre Proyecto: ");
             detalles.Append(proyecto.Nombre);
             detalles.Append("\nTotal de Horas: ");
             detalles.Append(proyecto.TiempoTotalTrab);
+            detalles.Append("\nCosto por Hora: ");
+            detalles.Append(proyecto.CostoHora);
             detalles.Append("\nHoras Estimadas: ");
             detalles.Append(proyecto.TiempoEstimTrab);
             detalles.Append("\nTotal de Costo: ");
@@ -192,9 +212,9 @@ namespace Capa.UI
             detalles.Append("\nCosto Estimado: ");
             detalles.Append(proyecto.EstimCosto);
             detalles.Append("\nUsuarios Encargados: \n");
-            
-            
-            foreach(Entidades.UsuarioEnt us in proyecto.ListUsuarios)
+
+
+            foreach (Entidades.UsuarioEnt us in proyecto.ListUsuarios)
             {
                 detalles.Append("ID: ");
                 detalles.Append(us.id);
@@ -217,7 +237,7 @@ namespace Capa.UI
         /// <param name="e"></param>
         private void btnAbrir_Click(object sender, EventArgs e)
         {
-            if (FrmLogIn.usuario.id == 1)
+            if (FrmLogIn.usuario.rol.idRol == 1)
             {
                 if (actividad != null)
                 {
@@ -241,7 +261,7 @@ namespace Capa.UI
                 }
                 else
                 {
-                    if (FrmLogIn.usuario.id == actividad.Usuario.id || FrmLogIn.usuario.id == 2)
+                    if (FrmLogIn.usuario.id == actividad.Usuario.id || FrmLogIn.usuario.rol.idRol == 2)
                     {
                         flag = true;
                         FrmActividad frmAct = new FrmActividad();
@@ -270,7 +290,7 @@ namespace Capa.UI
             this.llenarTablaActividad();
         }
 
-       
+
 
         /// <summary>
         /// Llena la tabla actividad segun el proyecto seleccionado
@@ -280,10 +300,13 @@ namespace Capa.UI
             try
             {
                 this.dgvActividades.DataSource = Logica.Class.Actividad.ObtenerListaPorProyecto(proyecto.Id);
+                this.dgvActividades.Columns.RemoveAt(0);
+                this.dgvActividades.Columns.RemoveAt(8);
+                this.dgvActividades.Columns.RemoveAt(2);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                
+
             }
 
         }
@@ -314,7 +337,7 @@ namespace Capa.UI
         }
 
         /// <summary>
-        /// Es el mismo que es button Nuevo Proyecto
+        ///  Abre la ventana para crear un proyecto
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -340,23 +363,34 @@ namespace Capa.UI
         /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if(this.lstProyectos.SelectedItem == null)
+            if (this.lstProyectos.SelectedItem == null)
             {
                 MessageBox.Show("No hay proyectos asignados");
                 return;
             }
-            Entidades.ProyectoEnt pro = (Entidades.ProyectoEnt)this.lstProyectos.SelectedItem;
-            Logica.Class.Proyecto.EliminarProy(pro.Id);
 
-            if (FrmLogIn.usuario.rol.idRol == 2 || FrmLogIn.usuario.rol.idRol == 3)
+            DialogResult dialog = MessageBox.Show("Seguro?", "Pregunta", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+            if (dialog == DialogResult.Yes)
             {
-                this.ProyectosPorUsuario(FrmLogIn.usuario.id);
+                Entidades.ProyectoEnt pro = (Entidades.ProyectoEnt)this.lstProyectos.SelectedItem;
+                Logica.Class.Proyecto.EliminarProy(pro.Id);
+
+                if (FrmLogIn.usuario.rol.idRol == 2 || FrmLogIn.usuario.rol.idRol == 3)
+                {
+                    this.ProyectosPorUsuario(FrmLogIn.usuario.id);
+                }
+                else
+                {
+                    this.llenarListaProyectos();
+                }
             }
             else
             {
-                this.llenarListaProyectos();
+                return;
             }
         }
+
         /// <summary>
         /// Obtiene la actividad seleccionada
         /// </summary>
@@ -483,5 +517,69 @@ namespace Capa.UI
             Reportes.frmRepActPorGravedad rep = new Reportes.frmRepActPorGravedad();
             rep.Show();
         }
-    }
+
+        private void costosDeActividadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Reportes.frmRepCostosActividades repCostos = new Reportes.frmRepCostosActividades();
+            repCostos.Show();
+        }
+
+
+        /// <summary>
+        /// Sobrecarga el metodo del close para volver a traer el frame del LogIn
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+            // Confirma si el usuario quiere salir
+            switch (MessageBox.Show(this, "Esta seguro de cerrar la aplicacion?", "Cerrando", MessageBoxButtons.YesNo))
+            {
+                case DialogResult.No:
+                    e.Cancel = true;
+                    break;
+                default:
+                    FrmLogIn.getInstance().Show();
+                    break;
+            }
+        }
+
+
+        /// <summary>
+        /// Metodo para eliminar una actividad
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnEliminarAct_Click(object sender, EventArgs e)
+        {
+            if(actividad == null)
+            {
+                MessageBox.Show("No hay una actividad seleccionada");
+                return;
+            }
+            DialogResult dialog = MessageBox.Show("Seguro?", "Pregunta", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+            if (dialog == DialogResult.Yes)
+            {
+                actividad = (Entidades.ActividadEnt)this.dgvActividades.SelectedRows[0].DataBoundItem;
+                Logica.Class.Actividad.EliminarActividad(actividad.ID);
+                this.llenarTablaActividad();
+            }
+        }
+
+        private void historialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Reportes.frmRepHistorial repHis = new Reportes.frmRepHistorial();
+            repHis.Show();
+        }
+
+        private void deLosProyectosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Reportes.frmReporteActividadesProyectoAsignado repAct = new Reportes.frmReporteActividadesProyectoAsignado();
+            repAct.Show();
+        }
+    } 
 }

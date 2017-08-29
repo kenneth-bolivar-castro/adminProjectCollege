@@ -40,12 +40,15 @@ namespace Capa.UI
         /// <param name="e"></param>
         private void FrmMantenimientoUsuar_Load(object sender, EventArgs e)
         {
+            this.groupBox2.BackColor = Color.Transparent;
+            this.groupBox1.BackColor = Color.Transparent;
             this.refrescar();
             this.cargarCombo();
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.ClearSelection();
             this.Controls.OfType<TextBox>().ToList().ForEach(txt => txt.Text = "");
             this.cboRol.SelectedIndex = -1;
+            this.dgvUsuarios.Columns.RemoveAt(0);
         }
 
 
@@ -154,6 +157,7 @@ namespace Capa.UI
             usuario.id = this.id;
             usuario.Nombre = this.txtNombre.Text;
             usuario.NombreUsuario = this.txtUsuario.Text;
+            usuario.Contrasenia = this.txtContra.Text;
             usuario.rol = this.cboRol.SelectedItem as Entidades.RolesEnt;
             Logica.Class.Usuario.modificarUsuario(usuario);
             this.refrescar();
@@ -181,6 +185,7 @@ namespace Capa.UI
                 this.id = usuar.id;
                 this.txtNombre.Text = usuar.Nombre;
                 this.txtUsuario.Text = usuar.NombreUsuario;
+                this.txtContra.Text = usuar.Contrasenia;
                 this.cboRol.SelectedIndex = this.cboRol.FindStringExact(usuar.rol.ToString());
                 this.btnEliminar.Enabled = true;
                 this.btnModificar.Enabled = true;
@@ -235,7 +240,10 @@ namespace Capa.UI
             this.btnGuardar.Enabled = true;
             this.btnModificar.Enabled = false;
             this.btnEliminar.Enabled = false;
-            this.Controls.OfType<TextBox>().ToList().ForEach(txt => txt.Text = "");
+            this.txtContra.Text = "";
+            this.txtNombre.Text = "";
+            this.txtUsuario.Text = ""; 
+
             this.cboRol.SelectedIndex = -1;
         }
 

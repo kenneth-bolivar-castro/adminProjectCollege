@@ -58,6 +58,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AdminProyectosDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsActividadesDelUsuario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsActividadesDelUsuario.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsActividadesPorGravedad.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -73,15 +78,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsActPorUsuario.xsd</DependentUpon>
     </Compile>
-    <Compile Include="dsActPorUsuarioAsignado.Designer.cs">
+    <Compile Include="dsActProyectoAsig.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dsActPorUsuarioAsignado.xsd</DependentUpon>
+      <DependentUpon>dsActProyectoAsig.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsCostosActividadesProy.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCostosActividadesProy.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsHorasActividades.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsHorasActividades.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsReporteHistorial.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReporteHistorial.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsUsuariosPorProyectos.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -150,6 +165,24 @@
     <Compile Include="Reportes\frmRepActividadPorTipoActividad.Designer.cs">
       <DependentUpon>frmRepActividadPorTipoActividad.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmRepCostosActividades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmRepCostosActividades.Designer.cs">
+      <DependentUpon>frmRepCostosActividades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmRepHistorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmRepHistorial.Designer.cs">
+      <DependentUpon>frmRepHistorial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReporteActividadesProyectoAsignado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReporteActividadesProyectoAsignado.Designer.cs">
+      <DependentUpon>frmReporteActividadesProyectoAsignado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmReportUsuarioAsignado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,12 +232,23 @@
     <EmbeddedResource Include="Reportes\frmRepActPorUsuario.resx">
       <DependentUpon>frmRepActPorUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmRepCostosActividades.resx">
+      <DependentUpon>frmRepCostosActividades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmRepHistorial.resx">
+      <DependentUpon>frmRepHistorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReporteActividadesProyectoAsignado.resx">
+      <DependentUpon>frmReporteActividadesProyectoAsignado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportUsuarioAsignado.resx">
       <DependentUpon>frmReportUsuarioAsignado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmRepUsuarioPorProyecto.resx">
       <DependentUpon>frmRepUsuarioPorProyecto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\repActividadesProyectoAsig.rdlc" />
+    <EmbeddedResource Include="Reportes\repActividadesUsuario.rdlc" />
     <EmbeddedResource Include="Reportes\repActividadPorProyecto.rdlc" />
     <EmbeddedResource Include="Reportes\frmRepActividadPorTipoActividad.resx">
       <DependentUpon>frmRepActividadPorTipoActividad.cs</DependentUpon>
@@ -212,7 +256,8 @@
     <EmbeddedResource Include="Reportes\repActPorGravedad.rdlc" />
     <EmbeddedResource Include="Reportes\repActPorTipoActividad.rdlc" />
     <EmbeddedResource Include="Reportes\repActPorUsuario.rdlc" />
-    <EmbeddedResource Include="Reportes\repActPorUsuarioAsignado.rdlc" />
+    <EmbeddedResource Include="Reportes\repCostoActividades.rdlc" />
+    <EmbeddedResource Include="Reportes\repHistorial.rdlc" />
     <EmbeddedResource Include="Reportes\repHorasActividadesGraficos.rdlc" />
     <EmbeddedResource Include="Reportes\repUsuariosProyectos.rdlc" />
     <None Include="AdminProyectosDataSet.xsc">
@@ -225,6 +270,17 @@
     </None>
     <None Include="AdminProyectosDataSet.xss">
       <DependentUpon>AdminProyectosDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dsActividadesDelUsuario.xsc">
+      <DependentUpon>dsActividadesDelUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="dsActividadesDelUsuario.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsActividadesDelUsuario.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsActividadesDelUsuario.xss">
+      <DependentUpon>dsActividadesDelUsuario.xsd</DependentUpon>
     </None>
     <None Include="dsActividadesPorGravedad.xsc">
       <DependentUpon>dsActividadesPorGravedad.xsd</DependentUpon>
@@ -259,16 +315,27 @@
     <None Include="dsActPorUsuario.xss">
       <DependentUpon>dsActPorUsuario.xsd</DependentUpon>
     </None>
-    <None Include="dsActPorUsuarioAsignado.xsc">
-      <DependentUpon>dsActPorUsuarioAsignado.xsd</DependentUpon>
+    <None Include="dsActProyectoAsig.xsc">
+      <DependentUpon>dsActProyectoAsig.xsd</DependentUpon>
     </None>
-    <None Include="dsActPorUsuarioAsignado.xsd">
+    <None Include="dsActProyectoAsig.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsActPorUsuarioAsignado.Designer.cs</LastGenOutput>
+      <LastGenOutput>dsActProyectoAsig.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="dsActPorUsuarioAsignado.xss">
-      <DependentUpon>dsActPorUsuarioAsignado.xsd</DependentUpon>
+    <None Include="dsActProyectoAsig.xss">
+      <DependentUpon>dsActProyectoAsig.xsd</DependentUpon>
+    </None>
+    <None Include="dsCostosActividadesProy.xsc">
+      <DependentUpon>dsCostosActividadesProy.xsd</DependentUpon>
+    </None>
+    <None Include="dsCostosActividadesProy.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCostosActividadesProy.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsCostosActividadesProy.xss">
+      <DependentUpon>dsCostosActividadesProy.xsd</DependentUpon>
     </None>
     <None Include="dsHorasActividades.xsc">
       <DependentUpon>dsHorasActividades.xsd</DependentUpon>
@@ -280,6 +347,17 @@
     </None>
     <None Include="dsHorasActividades.xss">
       <DependentUpon>dsHorasActividades.xsd</DependentUpon>
+    </None>
+    <None Include="dsReporteHistorial.xsc">
+      <DependentUpon>dsReporteHistorial.xsd</DependentUpon>
+    </None>
+    <None Include="dsReporteHistorial.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReporteHistorial.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsReporteHistorial.xss">
+      <DependentUpon>dsReporteHistorial.xsd</DependentUpon>
     </None>
     <None Include="dsUsuariosPorProyectos.xsc">
       <DependentUpon>dsUsuariosPorProyectos.xsd</DependentUpon>

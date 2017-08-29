@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa.AccesoDatos", "Capa.Ac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa.Entidades", "Capa.Entidades\Capa.Entidades.csproj", "{EC5B2EFB-020B-46B3-AD6F-D4867047DE76}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AdministradorProyectosSetup", "AdministradorProyectosSetup\AdministradorProyectosSetup.vdproj", "{B88278D9-C072-4253-8227-91D5D5AC3821}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,8 @@ Global
 		{EC5B2EFB-020B-46B3-AD6F-D4867047DE76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC5B2EFB-020B-46B3-AD6F-D4867047DE76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC5B2EFB-020B-46B3-AD6F-D4867047DE76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B88278D9-C072-4253-8227-91D5D5AC3821}.Debug|Any CPU.ActiveCfg = Debug
+		{B88278D9-C072-4253-8227-91D5D5AC3821}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -136,6 +136,9 @@ namespace Capa.Logica.Class
             AccesoDatos.ProyectosDatos.EliminarUsuariosProyecto(IdProy, IdUsr);
         }
 
+
+
+      
         
 
     }
